@@ -1,0 +1,283 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 121px var(--shell-pad-desktop) 128px;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.bottom {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 216px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+/* -------------------------------------------------------------- portrait */
+
+.portrait {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  width: 456px;
+  height: min-content;
+  padding: 498px 0 0;
+  border: 1px solid var(--c-ink-82);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  will-change: transform;
+}
+
+.portraitImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.portraitBlur {
+  position: absolute;
+  inset: 0 0 0 228px;
+  z-index: 1;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.socials {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  width: min-content;
+  height: min-content;
+  padding: 0 0 32px 32px;
+  overflow: hidden;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  height: min-content;
+  padding: 12px;
+  border-radius: 100%;
+  background-color: var(--c-white-16);
+  overflow: hidden;
+  --icon-stroke: var(--c-white);
+  --icon-stroke-width: 1.5;
+  --icon-fill-opacity: 0;
+  transition: background-color var(--dur-base) var(--ease-framer);
+}
+
+.social:hover {
+  background-color: var(--c-white-24);
+}
+
+.social svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+/* Award seal — overlaps the portrait's bottom-right corner. */
+.badge {
+  position: absolute;
+  z-index: 1;
+  right: 594px;
+  bottom: 19px;
+  width: 156px;
+  height: 156px;
+  object-fit: contain;
+}
+
+/* ----------------------------------------------------------- right column */
+
+.right {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 64px;
+  width: 1px;
+  max-width: 456px;
+  height: min-content;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.heading {
+  width: 100%;
+  color: var(--c-ink);
+}
+
+.bio {
+  width: 100%;
+  color: var(--c-gray);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.line {
+  flex: none;
+  width: 100%;
+  height: 1px;
+  background-color: var(--c-black-10);
+}
+
+.timeline {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.timelineRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 32px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.timelineRole {
+  flex: 1 0 0;
+  width: 1px;
+  text-align: left;
+  color: var(--c-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.timelinePeriod {
+  flex: none;
+  white-space: pre;
+  color: var(--c-gray);
+}
+
+/* ----------------------------------------------------------------- tablet */
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 30px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 114px;
+  }
+
+  .portrait {
+    width: 100%;
+  }
+
+  .portraitBlur {
+    left: 318px;
+  }
+
+  .badge {
+    right: -8px;
+    bottom: auto;
+    top: calc(49.8732% - 78px);
+  }
+
+  .right {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 809.98px) {
+  .root {
+    padding: 100px 20px 20px;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 100px;
+  }
+
+  .portrait {
+    order: 0;
+    width: 100%;
+    padding-top: 380px;
+  }
+
+  .badge {
+    order: 1;
+    right: -8px;
+    bottom: auto;
+    top: calc(47.0155% - 78px);
+  }
+
+  .right {
+    order: 2;
+    flex: none;
+    width: 100%;
+  }
+}

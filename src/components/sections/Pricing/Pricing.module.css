@@ -1,0 +1,464 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 112px 0;
+  overflow: visible;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 64px;
+  width: 1px;
+  max-width: 792px;
+  height: min-content;
+  overflow: visible;
+}
+
+.head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.eyebrow {
+  width: 100%;
+  text-align: center;
+  color: var(--c-gray);
+}
+
+.heading {
+  width: 100%;
+  text-align: center;
+  color: var(--c-ink);
+}
+
+.body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+/* ------------------------------------------------------------------ card */
+
+.card {
+  position: sticky;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  height: min-content;
+  padding: 32px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.cardLight {
+  background-color: var(--c-surface);
+}
+
+.cardDark {
+  background-color: transparent;
+}
+
+.cardBackground {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+/* ------------------------------------------------------------------- left */
+
+.left {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 116px;
+  width: 1px;
+  height: min-content;
+  overflow: visible;
+}
+
+.leftTop {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.icon {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 47px;
+  border: 1px solid var(--c-white-10);
+  border-radius: 12.5px;
+  background-color: var(--c-ink-82);
+  overflow: hidden;
+  box-shadow:
+    inset 0 0.5px 0.5px var(--c-white-16),
+    0 0 0 1px var(--c-black-77),
+    0 3px 6px var(--c-black-19),
+    0 10px 10px var(--c-black-17),
+    0 23px 14px var(--c-black-10),
+    0 41px 17px var(--c-black-3);
+}
+
+.icon img {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  object-fit: cover;
+}
+
+.planText {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.planName {
+  width: 100%;
+  color: var(--c-ink);
+}
+
+.planDescription {
+  width: 100%;
+  color: var(--c-gray);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cardDark .planName {
+  color: var(--c-white);
+}
+
+.cardDark .planDescription {
+  color: var(--c-white-64);
+}
+
+.leftBottom {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.delivery {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.deliveryLabel,
+.deliveryValue {
+  flex: none;
+  white-space: pre;
+  color: var(--c-gray);
+}
+
+.cardDark .deliveryLabel,
+.cardDark .deliveryValue {
+  color: var(--c-white-64);
+}
+
+.rule {
+  flex: none;
+  width: 100%;
+  height: 1px;
+  background-color: var(--c-black-10);
+}
+
+.cardDark .rule {
+  background-color: var(--c-white-20);
+}
+
+/* ------------------------------------------------------------------ right */
+
+.right {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 28px;
+  width: 1px;
+  height: min-content;
+  overflow: hidden;
+}
+
+.price {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.priceStacked {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  overflow: visible;
+}
+
+.priceValue {
+  white-space: pre;
+}
+
+.toneInk {
+  color: var(--c-ink);
+}
+
+.toneWhite {
+  color: var(--c-white);
+}
+
+.toneAccent {
+  color: var(--c-accent);
+}
+
+.priceSuffixWrap {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 1px;
+  height: min-content;
+  padding: 0 0 8px;
+  overflow: hidden;
+}
+
+.priceSuffix {
+  white-space: pre;
+  color: var(--c-gray);
+}
+
+.features {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.feature {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 340px;
+  max-width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.featureIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--r-pill);
+  background-color: var(--c-ink-8);
+  overflow: hidden;
+  --icon-stroke: var(--c-ink);
+  --icon-stroke-width: 1.5;
+  --icon-fill-opacity: 0;
+}
+
+.featureIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.featureText {
+  flex: 1 0 0;
+  width: 1px;
+  color: var(--c-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cardDark .featureText {
+  color: var(--c-white);
+}
+
+.cardDark .featureIcon {
+  background-color: var(--c-white-16);
+  --icon-stroke: var(--c-white);
+}
+
+/* -------------------------------------------------------------------- cta */
+
+.cta {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 339px;
+  height: min-content;
+  padding: 12px 0;
+  border-radius: var(--r-pill);
+  background-color: var(--c-ink-82);
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: gap var(--dur-slow) var(--ease-framer);
+}
+
+.cta:hover {
+  gap: 18px;
+}
+
+.ctaBorder {
+  position: absolute;
+  inset: 1px;
+  z-index: 1;
+  border: 1px solid var(--c-white-10);
+  border-radius: var(--r-pill);
+  pointer-events: none;
+}
+
+.ctaBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: var(--r-pill);
+  background-color: var(--c-white-16);
+  pointer-events: none;
+}
+
+.ctaLabel {
+  position: relative;
+  z-index: 2;
+  white-space: pre;
+  color: var(--c-white);
+}
+
+.ctaIcon {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+/* ----------------------------------------------------------------- tablet */
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 30px;
+  }
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 809.98px) {
+  .root {
+    flex-direction: column;
+    padding: 100px 20px 20px;
+  }
+
+  .container {
+    flex: none;
+    width: 100%;
+  }
+
+  .card {
+    position: relative;
+    top: auto !important;
+    flex-direction: column;
+  }
+
+  .left {
+    flex: none;
+    gap: 76px;
+    width: 100%;
+  }
+
+  .right {
+    flex: none;
+    width: 100%;
+  }
+
+  .feature {
+    width: 100%;
+  }
+}

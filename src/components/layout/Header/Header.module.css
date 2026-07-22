@@ -1,0 +1,260 @@
+.container {
+  position: relative;
+  z-index: 10;
+  flex: none;
+  width: 100%;
+  max-width: var(--page-max);
+}
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  max-width: 100%;
+  height: min-content;
+  padding: 0 var(--shell-pad-desktop);
+  overflow: hidden;
+  background-color: var(--c-surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ------------------------------------------------------------------ notch */
+
+.notch {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 342px;
+  height: min-content;
+  overflow: hidden;
+}
+
+.notchShape {
+  flex: none;
+  width: 342px;
+  height: 36px;
+}
+
+.notchDot {
+  position: absolute;
+  z-index: 1;
+  top: calc(52.7778% - 4px);
+  left: 77px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-pill);
+  background-color: var(--c-success);
+}
+
+.notchText {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 53%;
+  transform: translate(-50%, -50%);
+  white-space: pre;
+  color: var(--c-white);
+}
+
+/* -------------------------------------------------------------------- bar */
+
+.bar {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: min-content;
+  padding: 32px 0 0;
+  overflow: visible;
+}
+
+.left {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  width: min-content;
+  height: min-content;
+}
+
+.logo {
+  position: relative;
+  flex: none;
+  display: block;
+  width: 117px;
+  height: 48px;
+  overflow: hidden;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.hamburger {
+  display: none;
+  position: relative;
+  z-index: 3;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: var(--r-sm);
+}
+
+.hamburgerLine {
+  flex: none;
+  width: 18px;
+  height: 2px;
+  border-radius: var(--r-xs);
+  background-color: var(--c-gray);
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: min-content;
+  height: min-content;
+  overflow: hidden;
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  width: min-content;
+  height: min-content;
+  padding: 6px 12px;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navLabel {
+  position: relative;
+  flex: none;
+  white-space: pre;
+}
+
+.navUnderline {
+  flex: none;
+  width: 1px;
+  height: 2px;
+  overflow: hidden;
+}
+
+.cta {
+  position: relative;
+  flex: none;
+  width: auto;
+  height: auto;
+}
+
+.spacer {
+  flex: none;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------------- tablet */
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 0 var(--shell-pad-tablet);
+  }
+  .spacer {
+    height: 90px;
+  }
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 809.98px) {
+  .container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    order: -1000;
+  }
+
+  .root {
+    height: 116px;
+    padding: 0 var(--shell-pad-mobile);
+  }
+
+  .root.open {
+    height: auto;
+  }
+
+  .bar {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 32px 0 30px;
+  }
+
+  .left {
+    order: 0;
+    gap: 0;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    order: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .cta {
+    order: 2;
+    width: 100%;
+  }
+
+  .spacer {
+    display: none;
+  }
+}

@@ -1,0 +1,160 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 112px var(--shell-pad-desktop);
+  overflow: visible;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 64px;
+  width: 1px;
+  height: min-content;
+  overflow: visible;
+}
+
+.title {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.eyebrow {
+  width: 100%;
+  text-align: center;
+  color: var(--c-gray);
+}
+
+.heading {
+  width: 100%;
+  text-align: center;
+  color: var(--c-ink);
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  border-top: 1px solid var(--c-gray);
+  overflow: visible;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: min-content;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--c-gray);
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.organisation {
+  flex: none;
+  white-space: pre;
+  text-align: left;
+  color: var(--c-gray);
+  transition: color var(--dur-base) var(--ease-framer);
+}
+
+.center {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 1px;
+  height: min-content;
+  overflow: visible;
+}
+
+.achievement {
+  flex: 1 0 0;
+  width: 1px;
+  text-align: center;
+  color: var(--c-ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+  transition: color var(--dur-base) var(--ease-framer);
+}
+
+.project {
+  flex: none;
+  white-space: pre;
+  color: var(--c-gray);
+  transition: color var(--dur-base) var(--ease-framer);
+}
+
+.row:hover .achievement,
+.row:hover .organisation,
+.row:hover .project {
+  color: var(--c-accent);
+}
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .root {
+    flex-direction: column;
+    padding: 100px 20px 20px;
+  }
+
+  .container {
+    flex: none;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 24px 0;
+  }
+
+  .center {
+    flex: none;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .achievement {
+    flex: none;
+    width: 100%;
+    text-align: left;
+  }
+}

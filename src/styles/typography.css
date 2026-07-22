@@ -1,0 +1,199 @@
+/**
+ * Typography presets — a direct port of the Framer text styles.
+ * Each class encodes font, size, line-height, tracking and colour for the
+ * three Framer breakpoints (>=1440px, 810–1439px, <810px).
+ *
+ * Colour is intentionally overridable per usage via `color`, exactly like
+ * Framer's per-instance text-colour override.
+ */
+
+.t {
+  margin: 0;
+  padding: 0;
+  font-feature-settings: var(--font-features);
+  font-variation-settings: normal;
+}
+
+/* Display 1 — hero headline (Cal Sans 72/80, 34/40 on mobile) */
+.t-display1 {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 80px;
+  letter-spacing: 0;
+  color: var(--c-ink);
+}
+
+/* Display XL — oversized watermark headline (Cal Sans 204/204) */
+.t-displayXl {
+  font-family: var(--font-display);
+  font-size: 204px;
+  font-weight: 400;
+  line-height: 204px;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--c-ink-82);
+  font-feature-settings: normal;
+}
+
+/* Heading 2 — section headline (Cal Sans 64/68) */
+.t-h2 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 68px;
+  letter-spacing: 0;
+  color: var(--c-ink);
+}
+
+/* Heading 3 — card headline (Cal Sans 48/56) */
+.t-h3 {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 56px;
+  letter-spacing: 0;
+  color: var(--c-ink);
+}
+
+/* Heading 4 — contact headline (Cal Sans 40/48) */
+.t-h4 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 48px;
+  letter-spacing: 0;
+  color: var(--c-white);
+}
+
+/* Heading 5 — ticker item (Cal Sans 32/40) */
+.t-h5 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0;
+  color: var(--c-white);
+}
+
+/* Heading 6 — small display label (Cal Sans 24/32) */
+.t-h6 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0;
+  color: var(--c-white);
+}
+
+/* Display counter — statistics (Cal Sans 128/128) */
+.t-counter {
+  font-family: var(--font-display);
+  font-size: 128px;
+  font-weight: 400;
+  line-height: 128px;
+  letter-spacing: 0;
+  color: var(--c-accent);
+}
+
+/* Quote — testimonial / reveal text (Cal Sans 28/36) */
+.t-quote {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0;
+  color: var(--c-gray);
+}
+
+/* Lead — large body copy (Inter 28/36) */
+.t-lead {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -0.28px;
+  color: var(--c-gray);
+}
+
+/* Body large (Inter 18/28) */
+.t-bodyLg {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+  color: var(--c-gray);
+}
+
+/* Body (Inter 16/24) */
+.t-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  color: var(--c-gray);
+}
+
+/* Label (Inter 400 14/20) */
+.t-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  color: var(--c-white);
+}
+
+/* Label medium — buttons (Inter 500 14/20) */
+.t-labelMd {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+  color: var(--c-white);
+}
+
+/* Caption (Inter 12/16) */
+.t-caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: -0.12px;
+  color: var(--c-white);
+}
+
+/* ------------------------------------------------------- tablet overrides */
+@media (max-width: 1439.98px) {
+  .t-displayXl {
+    font-size: 100px;
+    line-height: 100px;
+  }
+}
+
+/* ------------------------------------------------------- mobile overrides */
+@media (max-width: 809.98px) {
+  .t-display1 {
+    font-size: 34px;
+    line-height: 40px;
+  }
+  .t-displayXl {
+    font-size: 60px;
+    line-height: 100px;
+  }
+  .t-h3 {
+    font-size: 38px;
+    line-height: 56px;
+  }
+  .t-h4 {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .t-quote {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}

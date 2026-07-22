@@ -1,0 +1,41 @@
+/* Page shell — mirrors Framer's root stack: centred column, page background,
+   sections stretch to 100% width with their own 1920px ceiling. */
+
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--c-page);
+  overflow: visible;
+}
+
+.main {
+  display: contents;
+}
+
+/* Framer keeps a 200px surface-coloured band below the footer. */
+.tail {
+  flex: none;
+  order: 1003;
+  width: 100%;
+  height: 200px;
+  background-color: var(--c-surface);
+  overflow: hidden;
+}
+
+/* Below 810px the header is fixed, so the page needs a matching offset. */
+@media (max-width: 809.98px) {
+  .page::before {
+    content: "";
+    order: -999;
+    flex: none;
+    width: 100%;
+    height: 116px;
+    background-color: var(--c-surface);
+  }
+}

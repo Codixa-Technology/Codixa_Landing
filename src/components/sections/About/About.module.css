@@ -1,0 +1,117 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 112px 252px;
+  overflow: hidden;
+  background-color: var(--c-page);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.top {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.mark {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: min-content;
+  height: min-content;
+  overflow: visible;
+}
+
+.bracket {
+  flex: none;
+  white-space: pre;
+  color: var(--c-accent);
+}
+
+.signature {
+  flex: none;
+  width: 77px;
+  height: 24px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: 864px;
+  height: min-content;
+  overflow: hidden;
+}
+
+.revealWrapper {
+  flex: none;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}
+
+.chips {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 392px;
+  height: min-content;
+  overflow: visible;
+}
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 809.98px) {
+  .root {
+    padding: 20px;
+  }
+
+  .container {
+    gap: 30px;
+  }
+}

@@ -1,0 +1,109 @@
+.root {
+  position: relative;
+  flex: none;
+  width: 100%;
+  max-width: var(--page-max);
+  height: auto;
+}
+
+.band {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 56px 0;
+  overflow: hidden;
+  background-color: var(--c-page);
+}
+
+.stage {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1px;
+  height: min-content;
+  min-height: 303px;
+  overflow: hidden;
+}
+
+.ribbon {
+  position: absolute;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: min-content;
+  overflow: hidden;
+}
+
+.bandTop {
+  z-index: 1;
+  top: 49%;
+  left: -16px;
+  right: -7px;
+  transform: translateY(-50%) rotate(6deg);
+}
+
+.bandBottom {
+  z-index: 0;
+  top: 51%;
+  left: -20px;
+  right: -13px;
+  transform: translateY(-50%) rotate(-6deg);
+}
+
+.accent {
+  background-color: var(--c-accent);
+}
+
+.ink {
+  background-color: var(--c-black);
+}
+
+.ribbonTrack {
+  position: relative;
+  flex: 1 0 0;
+  width: 1px;
+  height: 72px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 29px;
+  width: min-content;
+  height: min-content;
+  padding: 65px 0;
+  overflow: visible;
+}
+
+.cardIcon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+}
+
+.cardTitle {
+  position: relative;
+  flex: none;
+  white-space: pre;
+  color: var(--c-white);
+}
+
+@media (max-width: 809.98px) {
+  .stage {
+    min-height: 240px;
+  }
+}

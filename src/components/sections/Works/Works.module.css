@@ -1,0 +1,408 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 112px 8px 0;
+  overflow: visible;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 1px;
+  height: min-content;
+  overflow: visible;
+}
+
+.stack {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  width: 100%;
+  height: min-content;
+  overflow: visible;
+}
+
+.sticky {
+  position: sticky;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  height: min-content;
+}
+
+/* ------------------------------------------------------------------ card */
+
+.card {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: min-content;
+  padding: 112px 0;
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+}
+
+.cardBackground {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.cardBlur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  background-color: var(--c-ink-40);
+}
+
+.cardNoise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 96px;
+  width: 1px;
+  max-width: 1128px;
+  height: min-content;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------- left column */
+
+.cardLeft {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  align-self: stretch;
+  width: 1px;
+  max-width: 215px;
+  height: auto;
+  overflow: hidden;
+}
+
+.descriptionRow {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.description {
+  flex: 1 0 0;
+  width: 1px;
+  text-align: left;
+  color: var(--c-white-64);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.brand {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.counterRow {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  width: min-content;
+  height: min-content;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--c-white-20);
+  white-space: pre;
+}
+
+.counterCurrent {
+  color: var(--c-white);
+}
+
+.counterTotal {
+  color: var(--c-white-64);
+}
+
+.title {
+  width: 100%;
+  color: var(--c-white);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ------------------------------------------------------------ right column */
+
+.cardRight {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 120px;
+  width: 1px;
+  height: min-content;
+  overflow: visible;
+}
+
+.imageLink {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min-content;
+  height: min-content;
+  border: 1px solid var(--c-ink-82);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.imageBorder {
+  position: absolute;
+  inset: 1px;
+  z-index: 1;
+  border: 1px solid var(--c-white-10);
+  border-radius: var(--r-xl);
+  pointer-events: none;
+}
+
+.imageFrame {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 456px;
+  height: 570px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.imageFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s var(--ease-framer);
+}
+
+.imageLink:hover .imageFrame img {
+  transform: scale(1.04);
+}
+
+/* ------------------------------------------------------------------- meta */
+
+.meta {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 113px;
+  width: 1px;
+  height: min-content;
+  margin: 0;
+  overflow: hidden;
+}
+
+.metaTop {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 64px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.metaGroup {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 8px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.metaGroupCentered {
+  align-items: center;
+  justify-content: center;
+}
+
+.metaLabel {
+  width: 100%;
+  color: var(--c-white-64);
+}
+
+.metaValue {
+  width: 100%;
+  margin: 0;
+  color: var(--c-white);
+}
+
+.metaValueLarge {
+  width: 100%;
+  margin: 0;
+  color: var(--c-white);
+}
+
+/* ----------------------------------------------------------------- tablet */
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 8px;
+  }
+
+  .cardInner {
+    gap: 60px;
+    max-width: 750px;
+  }
+
+  .cardRight {
+    gap: 50px;
+  }
+
+  .imageFrame {
+    width: 300px;
+    height: 400px;
+  }
+
+  .descriptionRow {
+    flex-direction: column;
+  }
+
+  .description {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* ----------------------------------------------------------------- mobile */
+
+@media (max-width: 809.98px) {
+  .root {
+    flex-direction: column;
+    padding: 20px 8px;
+  }
+
+  .container {
+    flex: none;
+    width: 100%;
+  }
+
+  .sticky {
+    position: relative;
+    top: unset !important;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .cardInner {
+    flex-direction: column;
+    gap: 40px;
+    max-width: none;
+  }
+
+  .cardLeft {
+    flex: none;
+    align-self: auto;
+    justify-content: center;
+    gap: 70px;
+    width: 100%;
+    max-width: none;
+    height: min-content;
+  }
+
+  .description {
+    flex: none;
+    width: 100%;
+  }
+
+  .cardRight {
+    flex: none;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+  }
+
+  .meta {
+    flex: none;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .metaTop {
+    gap: 30px;
+  }
+}

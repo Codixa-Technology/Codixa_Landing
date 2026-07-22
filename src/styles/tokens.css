@@ -1,0 +1,84 @@
+/**
+ * Design tokens — mirrored 1:1 from the Framer project's colour styles,
+ * typography presets, radii, shadows and motion curves.
+ *
+ * Every value in the UI should reference a token from this file.
+ */
+
+:root {
+  /* ---------------------------------------------------------------- colour */
+  --c-black: #000000;
+  --c-ink: #131313;
+  --c-ink-soft: #111111;
+  --c-gray: #5c5c5c;
+  --c-gray-40: rgba(92, 92, 92, 0.4);
+  --c-surface: #f0f0f0;
+  --c-page: #dcdcdc;
+  --c-page-0: rgba(220, 220, 220, 0);
+  --c-white: #ffffff;
+  --c-accent: #ff4d00;
+  --c-success: #61c554;
+
+  /* translucent inks */
+  --c-ink-82: rgba(12, 12, 12, 0.82);
+  --c-ink-40: rgba(12, 12, 12, 0.4);
+  --c-ink-8: rgba(19, 19, 19, 0.08);
+  --c-neutral-8: rgba(26, 26, 26, 0.08);
+  --c-neutral-6: rgba(26, 26, 26, 0.06);
+  --c-neutral-12: rgba(26, 26, 26, 0.12);
+  --c-black-3: rgba(0, 0, 0, 0.03);
+  --c-black-10: rgba(0, 0, 0, 0.1);
+  --c-black-17: rgba(0, 0, 0, 0.17);
+  --c-black-19: rgba(0, 0, 0, 0.19);
+  --c-black-77: rgba(0, 0, 0, 0.77);
+
+  /* translucent whites */
+  --c-white-80: rgba(255, 255, 255, 0.8);
+  --c-white-64: rgba(255, 255, 255, 0.64);
+  --c-white-24: rgba(255, 255, 255, 0.24);
+  --c-white-20: rgba(255, 255, 255, 0.2);
+  --c-white-16: rgba(255, 255, 255, 0.16);
+  --c-white-10: rgba(255, 255, 255, 0.1);
+  --c-white-0: rgba(255, 255, 255, 0);
+
+  --c-border-light: #dcdcdc;
+
+  /* ------------------------------------------------------------ typography */
+  --font-display: "Cal Sans", "Cal Sans Placeholder", sans-serif;
+  --font-sans: "Inter", "Inter Placeholder", sans-serif;
+  --font-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+
+  /* ---------------------------------------------------------------- radius */
+  --r-xs: 1px;
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --r-2xl: 32px;
+  --r-pill: 50px;
+  --r-round: 999px;
+
+  /* --------------------------------------------------------------- shadows */
+  --sh-avatar: 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --sh-chip: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.24),
+    inset 0 4px 16px var(--c-white-16), 0 1px 2px rgba(26, 26, 26, 0.08),
+    0 2px 6px rgba(26, 26, 26, 0.04);
+  --sh-cta: 0 3px 6px rgba(0, 0, 0, 0.19), 0 10px 10px rgba(0, 0, 0, 0.17),
+    0 23px 14px rgba(0, 0, 0, 0.1), 0 41px 17px rgba(0, 0, 0, 0.03);
+  --sh-nav-button: 0 12px 12px -6px rgba(26, 26, 26, 0.12);
+
+  /* --------------------------------------------------------------- layout */
+  --page-max: 1920px;
+  --shell-pad-desktop: 156px;
+  --shell-pad-tablet: 40px;
+  --shell-pad-mobile: 20px;
+
+  /* --------------------------------------------------------------- motion */
+  --ease-framer: cubic-bezier(0.44, 0, 0.56, 1);
+  --ease-banner: cubic-bezier(0.09, 0.89, 0.36, 0.96);
+  --ease-out-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.3s;
+  --dur-slow: 0.4s;
+  --dur-slower: 0.6s;
+}

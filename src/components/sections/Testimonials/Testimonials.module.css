@@ -1,0 +1,300 @@
+.root {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  max-width: var(--page-max);
+  height: min-content;
+  padding: 112px var(--shell-pad-desktop);
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.bottom {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------ stats card */
+
+.statsCard {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  width: 32%;
+  height: min-content;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.statsInner {
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 1px;
+  height: min-content;
+  padding: 32px 0 32px 32px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.statsVideo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.statsScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: var(--c-ink-40);
+}
+
+.statsNoise {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  mix-blend-mode: overlay;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.stat {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.statLabel {
+  flex: none;
+  width: 100%;
+  text-align: left;
+  color: var(--c-white);
+}
+
+/* ---------------------------------------------------------------- slider */
+
+.sliderWrapper {
+  position: relative;
+  flex: 1 0 0;
+  width: 1px;
+  height: 460px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: inherit;
+}
+
+.cardScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--c-ink-40);
+}
+
+.cardBlur {
+  position: absolute;
+  inset: 360px 0 0;
+  z-index: 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  background-color: var(--c-page-0);
+}
+
+.cardContent {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 192px;
+  width: 1px;
+  height: min-content;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.cardIndex {
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  width: min-content;
+  height: min-content;
+  padding: 0 0 16px;
+  border-bottom: 1px solid var(--c-white-20);
+  white-space: pre;
+}
+
+.cardIndexCurrent {
+  color: var(--c-white);
+}
+
+.cardIndexTotal {
+  color: var(--c-white-64);
+}
+
+.cardBottom {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  width: 100%;
+  height: min-content;
+  overflow: hidden;
+}
+
+.quote {
+  flex: none;
+  width: 100%;
+  margin: 0;
+  color: var(--c-white);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.author {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  width: min-content;
+  height: min-content;
+  white-space: pre;
+}
+
+.authorName {
+  color: var(--c-white);
+}
+
+.authorRole {
+  color: var(--c-white-64);
+}
+
+/* -------------------------------------------------------------- tablet */
+
+@media (max-width: 1439.98px) {
+  .root {
+    padding: 40px 30px;
+  }
+
+  .cardContent {
+    gap: 96px;
+    padding: 32px;
+  }
+
+  .sliderWrapper {
+    height: 420px;
+  }
+}
+
+/* -------------------------------------------------------------- mobile */
+
+@media (max-width: 809.98px) {
+  .root {
+    padding: 20px;
+  }
+
+  .bottom {
+    flex-direction: column;
+  }
+
+  .statsCard {
+    width: 100%;
+  }
+
+  .statsInner {
+    padding: 32px;
+  }
+
+  .sliderWrapper {
+    flex: none;
+    width: 100%;
+    height: 480px;
+  }
+
+  .cardContent {
+    gap: 48px;
+    padding: 24px;
+  }
+
+  .cardBlur {
+    inset: 220px 0 0;
+  }
+}
