@@ -94,6 +94,20 @@ textarea {
   color: var(--c-white);
 }
 
+/* ------------------------------------------------------------------ scrollbar
+ * Native bars are hidden everywhere; the <Scrollbar /> primitive draws the
+ * page's own overlay bar on top. Scrolling itself is untouched. */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 /* Visually hidden but available to assistive technology. */
 .sr-only {
   position: absolute;
