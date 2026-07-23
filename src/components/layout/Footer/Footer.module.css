@@ -216,15 +216,18 @@
   z-index: 1;
   flex: none;
   width: 100%;
-  aspect-ratio: 2.90722;
+  /* Crop the tall PNG down to just the "Codixa" band — the source image has
+     large empty gradient above and below the text. */
+  aspect-ratio: 4.2;
   overflow: hidden;
 }
 
 .wordmark img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: right bottom;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* ------------------------------------------------------- decorative layers */

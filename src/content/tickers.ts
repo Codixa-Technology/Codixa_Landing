@@ -7,11 +7,11 @@ export const tickerBands = [
   {
     id: "services",
     tone: "accent" as const,
-    items: ["Website Design", "Brand Design", "Logo Design"],
+    items: ["Landing Page Animational", "CRM Platform", "Web Development"],
   },
   {
     id: "credentials",
     tone: "ink" as const,
-    items: ["Senior Designer", "10 Years of Experience", "Over 100 Customers"],
+    items: ["Frontend Development","Backend Development"],
   },
 ];

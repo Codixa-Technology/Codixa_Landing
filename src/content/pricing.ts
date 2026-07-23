@@ -1,8 +1,8 @@
 import { asset } from "./site";
 
 export const pricingSection = {
-  eyebrow: "(Pricing Plan)",
-  title: "Explore Pricing",
+  eyebrow: "(Services)",
+  title: "Explore Services",
 } as const;
 
 export interface PriceLine {
@@ -27,42 +27,39 @@ export interface Plan {
 
 export const plans: Plan[] = [
   {
-    id: "standard",
+    id: "landing-page",
     variant: "light",
     icon: asset("hkdh85c5wuRaQUC0E3ZaA2YqhY.png"),
-    name: "Standard Plan",
+    name: "Landing Page",
     description:
-      "Ideal for lean teams or startups needing clean, fast design delivery for websites or branding assets.",
+      "Create high-converting landing pages with modern layouts, smooth animations, and engaging user experiences designed to capture attention and turn visitors into customers.",
     deliveryLabel: "Delivery Time",
-    deliveryValue: "4-6weeks",
-    price: [{ text: "500$", tone: "ink" }],
-    priceSuffix: "/month",
+    deliveryValue: "1-5 days",
+    price: [{ text: "Starting at $150", tone: "ink" }],
     features: [
-      "You provide the wireframe",
-      "Visual design using Figma & Framer",
-      "Focused on website or branding only",
-      "Weekday turnaround (Mon–Fri)",
+      "Custom landing page design & development",
+      "Beautiful animations and interactive sections",
+      "Modern UI/UX with Figma & Framer workflow",
+      "Fully responsive across all devices",
     ],
     cta: { label: "Get Started", href: "#contact" },
   },
+
   {
-    id: "premium",
+    id: "websites-platforms",
     variant: "dark",
     icon: asset("z20as7qIn0WJioZel35OsXkADw.svg"),
-    name: "Premium Plan",
+    name: "Web Sites Platforms",
     description:
-      "A complete design experience — tailored strategy, polished visuals, and flexible collaboration throughout the process.",
+      "Build powerful websites and digital platforms with premium design, advanced functionality, smooth animations, and scalable solutions tailored to your business needs.",
     deliveryLabel: "Delivery Time",
-    deliveryValue: "4-6weeks",
-    price: [
-      { text: "Starting at", tone: "white" },
-      { text: "$1000", tone: "accent" },
-    ],
+    deliveryValue: "Depending on the scale of the project",
+    price: [{ text: "Starting at $400", tone: "white" }],
     features: [
-      "Help shaping your wireframe or brief",
-      "Custom design for website, brand, or logo",
-      "High-fidelity mockups using Figma & Framer",
-      "Dedicated weekday focus & deeper involvement",
+      "Complete website and platform development",
+      "Advanced animations and interactive experiences",
+      "Custom frontend solutions and integrations",
+      "Scalable architecture for future growth",
     ],
     cta: { label: "Get Started", href: "#contact" },
     background: asset("rPO1CKOqIOzSAvaQ1EYPMHZ0Ps.png"),

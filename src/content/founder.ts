@@ -2,10 +2,10 @@ import { asset } from "./site";
 
 export const founder = {
   eyebrow: "(Intro)",
-  watermark: "Meet Finton",
+  watermark: "Andranik Baghdasaryan",
   heading: "The Founder",
-  bio: "Franklin Clinton is a visual designer focused on crafting bold, functional design systems. He works with creative teams and startups to build standout brands and seamless digital experiences. Based in London, he balances clarity with character — and enjoys experimenting with motion design and interactive visuals in his spare time.",
-  portrait: asset("cdiudTEW8MSbl2008vSYXSq9ndI.png"),
+  bio: "Junior Frontend Developer with hands-on experience building modern, scalable, and responsive web applications. Passionate about transforming complex Figma designs into pixel-perfect, high-performance interfaces using React, TypeScript, JavaScript, and modern frontend technologies. Experienced in delivering production-ready features, reusable components, and intuitive user experiences across multiple real-world projects.",
+  portrait: asset("And.png"),
   badge: asset("JpJ9ryMkQp811zxkS5X8I8Igdo.png"),
   socials: [
     { id: "x", label: "Twitter (X)", href: "https://x.com" },
@@ -13,9 +13,9 @@ export const founder = {
     { id: "instagram", label: "Instagram", href: "https://instagram.com" },
   ],
   timeline: [
-    { role: "Founder at Codixa", period: "2024-Now" },
-    { role: "Brand Designer at Google", period: "2023-2024" },
-    { role: "Web Designer at Shopify", period: "2018-2023" },
-    { role: "Junior Designer at Meta", period: "2015-2018" },
+    { role: "Intern Frontend Developer at Picsart Academy", period: "2025-2025" },
+    { role: "Junior Frontend Developer at V Telecom", period: "2026-Now" },
+    { role: "Junior Frontend Developer at Solicy", period: "2026-Now" },
+    { role: "Founder at Codixa", period: "2025-Now" },
   ],
 } as const;

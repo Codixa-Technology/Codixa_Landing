@@ -8,9 +8,25 @@ export type HeadlineToken =
   | { kind: "text"; text: string; tone: "ink" | "gray" | "accent"; startDelay: number }
   | { kind: "image"; src: string; alt: string; delay: number; enter: "up" | "right"; hideOnMobile?: boolean };
 
+
+/*Option 1 (Recommended):
+Creating professional websites for companies based in Armenia.
+
+Option 2 (ավելի premium/agency style):
+Building professional websites and digital experiences for companies in Armenia.
+
+Option 3 (ավելի կարճ, նման քո օրինակին):
+Professional website development for companies based in Armenia.
+
+Option 4 (ավելի creative):
+Crafting modern, high-quality websites for Armenian companies and brands.
+
+Քո ուղարկած ոճին ամենամոտը կլինի՝
+"Professional website development for companies based in Armenia."*/
+
 export const heroHeadline: HeadlineToken[][] = [
   [
-    { kind: "text", text: "Effortless", tone: "ink", startDelay: 0.2 },
+    { kind: "text", text: "Building", tone: "ink", startDelay: 0.2 },
     {
       kind: "image",
       src: asset("luFfRKwjQbMAmBeknRUvUg7XY.svg"),
@@ -19,10 +35,10 @@ export const heroHeadline: HeadlineToken[][] = [
       enter: "up",
       hideOnMobile: true,
     },
-    { kind: "text", text: "Design", tone: "accent", startDelay: 0.4 },
+    { kind: "text", text: "professional", tone: "accent", startDelay: 0.4 },
   ],
   [
-    { kind: "text", text: "for", tone: "gray", startDelay: 0.6 },
+    { kind: "text", text: "websites", tone: "gray", startDelay: 0.6 },
     {
       kind: "image",
       src: asset("q6Lt0wxatBudeFMJylqNDhblWfw.png"),
@@ -31,20 +47,21 @@ export const heroHeadline: HeadlineToken[][] = [
       enter: "up",
       hideOnMobile: true,
     },
-    { kind: "text", text: "Design Startups", tone: "ink", startDelay: 0.8 },
+    { kind: "text", text: "for", tone: "ink", startDelay: 0.8 },
+    { kind: "text", text: "companies", tone: "ink", startDelay: 1.0 },
   ],
   [
-    { kind: "text", text: "based in", tone: "gray", startDelay: 1 },
-    { kind: "text", text: "London,", tone: "ink", startDelay: 1.2 },
+    { kind: "text", text: "based in", tone: "gray", startDelay: 1.2 },
+    { kind: "text", text: "Armenia,", tone: "ink", startDelay: 1.4 },
     {
       kind: "image",
-      src: asset("SEe6jn6sx24EVdMsr0kTyBN4Ok.png"),
+      src: asset("republicSquare.png"),
       alt: "London skyline",
       delay: 1,
       enter: "right",
       hideOnMobile: true,
     },
-    { kind: "text", text: "UK", tone: "ink", startDelay: 1.4 },
+    { kind: "text", text: "Yerevan", tone: "ink", startDelay: 1.6 },
   ],
 ];
 

@@ -13,7 +13,7 @@ export const site = {
   logo: asset("Logo.svg"),
   email: "codixatechnologies@gmail.com",
   location: { label: "Yerevan", timeZone: "Asia/Yerevan" },
-  copyright: "© 2025 Codixa. All rights reserved.",
+  copyright: "© 2026 Codixa. All rights reserved.",
 } as const;
 
 export interface NavItem {
@@ -30,4 +30,4 @@ export const navItems: NavItem[] = [
 
 export const navCta: NavItem = { label: "Contact", href: "#contact" };
 
-export const announcement = "Available for New Projects";
+export const announcement = "Company Ready for Projects";
