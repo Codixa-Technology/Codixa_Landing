@@ -36,7 +36,6 @@ export function App() {
           <Contact />
         </main>
         <Footer />
-        <div className={styles.tail} aria-hidden="true" />
         <Scrollbar />
         <BackToTop />
       </div>
