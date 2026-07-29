@@ -1,0 +1,46 @@
+/* Floating back-to-top control, pinned bottom-right, clear of the scrollbar. */
+
+.root {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-round);
+  background: var(--c-ink);
+  color: var(--c-white);
+  cursor: pointer;
+  box-shadow: var(--sh-nav-button), 0 8px 20px rgba(0, 0, 0, 0.18);
+  transition: background var(--dur-base) var(--ease-out-soft),
+    box-shadow var(--dur-base) var(--ease-out-soft);
+}
+
+.root:hover {
+  background: var(--c-accent);
+  box-shadow: 0 12px 12px -6px rgba(255, 77, 0, 0.24),
+    0 8px 24px rgba(255, 77, 0, 0.32);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+.icon {
+  display: block;
+}
+
+/* Nudge in from the scrollbar-free edge on small screens. */
+@media (max-width: 640px) {
+  .root {
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}

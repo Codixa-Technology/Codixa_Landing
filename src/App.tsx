@@ -1,6 +1,7 @@
 import { MotionConfig } from "motion/react";
 import { Footer } from "./components/layout/Footer/Footer";
 import { Header } from "./components/layout/Header/Header";
+import { BackToTop } from "./components/primitives/BackToTop/BackToTop";
 import { Scrollbar } from "./components/primitives/Scrollbar/Scrollbar";
 import { About } from "./components/sections/About/About";
 import { Awards } from "./components/sections/Awards/Awards";
@@ -37,6 +38,7 @@ export function App() {
         <Footer />
         <div className={styles.tail} aria-hidden="true" />
         <Scrollbar />
+        <BackToTop />
       </div>
     </MotionConfig>
   );
