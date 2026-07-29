@@ -49,16 +49,6 @@ export function Footer() {
               <span className={`t t-label ${styles.clock}`}>{time}</span>
             </div>
 
-            <p className={`t t-label ${styles.backToTop}`}>
-              <a href="#top">
-                <SplitText
-                  as="span"
-                  text={footer.backToTop}
-                  trigger="view"
-                  transition={charTween}
-                />
-              </a>
-            </p>
           </div>
 
           <div className={styles.wordmark}>
