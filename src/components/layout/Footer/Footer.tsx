@@ -1,9 +1,8 @@
 import { motion } from "motion/react";
 import { footer } from "../../../content/footer";
 import { site } from "../../../content/site";
-import { charTween, revealUp50, VIEWPORT } from "../../../lib/motion";
-import { FooterLights } from "../../primitives/Icon/icons";
-import { SplitText } from "../../primitives/SplitText/SplitText";
+import {  revealUp50, VIEWPORT } from "../../../lib/motion";
+import {FooterLights } from "../../primitives/Icon/icons";
 import { useLocalTime } from "../../../lib/useLocalTime";
 import styles from "./Footer.module.css";
 
@@ -62,3 +61,4 @@ export function Footer() {
     </motion.footer>
   );
 }
+
