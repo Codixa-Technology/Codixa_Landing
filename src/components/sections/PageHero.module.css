@@ -1,0 +1,105 @@
+.root {
+  overflow: hidden;
+  padding-top: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  padding-bottom: var(--section-tight);
+  border-bottom: 1px solid var(--border);
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.text {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 54rem;
+}
+
+.text > nav {
+  margin-bottom: var(--space-5);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+:lang(hy) .label {
+  letter-spacing: 0.06em;
+}
+
+.intro {
+  max-width: 40rem;
+  color: var(--text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 64em) {
+  .withAside {
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: var(--space-10);
+  }
+
+  .withAside .text {
+    padding-top: var(--space-6);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .text > *,
+  .aside {
+    animation: hero-rise var(--dur-4) var(--ease-out) both;
+  }
+
+  .text > :nth-child(2) {
+    animation-delay: 60ms;
+  }
+
+  .text > :nth-child(3) {
+    animation-delay: 120ms;
+  }
+
+  .text > :nth-child(4) {
+    animation-delay: 180ms;
+  }
+
+  .text > :nth-child(5) {
+    animation-delay: 240ms;
+  }
+
+  .aside {
+    animation-delay: 200ms;
+  }
+}
+
+/* Transform only: the H1 and intro are LCP candidates and must paint immediately. */
+@keyframes hero-rise {
+  from {
+    transform: translate3d(0, 16px, 0);
+  }
+}

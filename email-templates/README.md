@@ -1,7 +1,7 @@
 # EmailJS setup
 
 Submitting the contact form fires **two independent sends**, each with its own
-service + template pair (see [`src/lib/emailjs.ts`](../src/lib/emailjs.ts)).
+service + template pair (see [`src/lib/emailjs.ts`](../src/lib/emailjs.ts)). Credentials: `.env.example`.
 Both HTML files are paste-ready and email-client-safe on purpose — tables,
 inline styles, hex colours, no flex/grid.
 
@@ -40,7 +40,7 @@ the "Auto-Reply" tab is not used and should stay disabled.
 
 ## Attachments tab — on **both** templates
 
-Upload [`public/assets/images/Logo.png`](../public/assets/images/Logo.png) as a
+Upload [`logo.png`](logo.png) as a
 static attachment named exactly `logo.png` — that is what `cid:logo.png` resolves
 to. The dashboard preview always shows a broken image icon for `cid:` references;
 only the delivered mail resolves it.
@@ -52,13 +52,10 @@ Content field → **Edit Content** → switch the editor to code/HTML mode (`</>
 
 ## Verifying
 
-```sh
-npm run dev
-node tools/email-inspect.mjs      # no mail sent — checks credentials reach the browser
-node tools/email-send-test.mjs    # sends real test mail, prints both API responses
-```
+Put the credentials in `.env.local` (see `.env.example`), run `npm run dev`, open
+`/en/contact` and submit the form. A working submission shows a `200` response from
+`https://api.emailjs.com/api/v1.0/email/send` in the browser network panel and the
+success state on the page. Without credentials the form shows a clear "not
+configured" message instead of pretending to send.
 
-A working run logs two `200 https://api.emailjs.com/api/v1.0/email/send` responses
-with body `OK`.
-
-Vite reads `.env` only at startup — restart the dev server after changing credentials.
+Next.js reads env files at startup — restart the dev server after changing credentials.

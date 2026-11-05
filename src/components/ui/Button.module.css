@@ -1,0 +1,119 @@
+.button {
+  --btn-h: 2.875rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: var(--btn-h);
+  padding: 0 1.25rem;
+  border: 1.5px solid transparent;
+  border-radius: var(--r-md);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  white-space: nowrap;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out),
+    transform var(--dur-1) var(--ease-out);
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.lg {
+  --btn-h: 3.375rem;
+  padding: 0 1.6rem;
+  font-size: 1rem;
+}
+
+.icon {
+  flex: none;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.button:hover .icon {
+  transform: translateX(3px);
+}
+
+/* Primary — Codixa Orange with Ink text (5.25:1). One per screen. */
+.primary {
+  background: var(--orange);
+  color: var(--ink);
+}
+
+/* A dark wipe cut at 65° slides in on hover — the Cut as interaction. */
+.primary::before {
+  content: "";
+  position: absolute;
+  inset: 0 -30%;
+  z-index: -1;
+  background: var(--ink);
+  transform: translateX(-102%) skewX(var(--cut));
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.primary:hover {
+  color: var(--white);
+}
+
+.primary:hover::before {
+  transform: translateX(0) skewX(var(--cut));
+}
+
+[data-tone="ink"] .primary::before,
+[data-tone="carbon"] .primary::before {
+  background: var(--white);
+}
+
+[data-tone="ink"] .primary:hover,
+[data-tone="carbon"] .primary:hover {
+  color: var(--ink);
+}
+
+.primary:active {
+  background: var(--ember);
+}
+
+.dark {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.dark:hover {
+  background: var(--graphite);
+}
+
+.secondary {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-strong);
+}
+
+.secondary:hover {
+  background: var(--text-strong);
+  color: var(--bg);
+}
+
+.ghost {
+  min-height: 2.5rem;
+  padding: 0 0.25rem;
+  color: var(--accent-text);
+}
+
+.ghost:hover {
+  color: var(--text-strong);
+}
+
+@media (max-width: 30em) {
+  .lg {
+    --btn-h: 3.25rem;
+    padding: 0 1.3rem;
+  }
+}

@@ -1,116 +1,125 @@
-# Codixa — React rebuild
+# Codixa Technologies — codixa.space
 
-A pixel-faithful React/TypeScript/Vite rebuild of the **Codixa — Modern Portfolio &
-Creative Agency** Framer template.
+The official website of Codixa Technologies: a statically generated, trilingual
+(EN / HY / RU) Next.js site built on the Codixa Brand Identity Guidelines v1.0.
 
-Every measurement (paddings, gaps, max-widths, radii, shadows), every type preset
-and every animation curve is ported from the published Framer site rather than
-approximated, so the two renders line up at all three breakpoints.
+## Stack
 
----
-
-## Getting started
+- **Next.js 16** (App Router), fully static. Every page is pre-rendered at build time.
+- **React 19**, **TypeScript** (strict), **CSS Modules** plus global design tokens. No UI framework.
+- **Fonts:** Manrope, JetBrains Mono and Noto Sans Armenian, self-hosted through `next/font`.
+- **EmailJS** for the contact form. It is loaded only when the form is submitted.
+- **Runtime dependencies:** `next`, `react`, `react-dom`, `@emailjs/browser`.
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # type-check + production bundle in dist/
-npm run preview  # serve the production bundle
+npm run dev          # http://localhost:3000
+npm run build        # production build (47 static pages)
+npm start            # serve the production build
+npm run typecheck && npm run lint
 ```
 
----
-
-## Project structure
+## Structure
 
 ```
-public/assets/
-  fonts/          Cal Sans + Inter + Inter Display (self-hosted woff2)
-  images/         every image and SVG used by the page
-  video/          the looping clip behind the statistics card
-
 src/
-  content/        <- all copy, links, images and lists (edit here first)
-  styles/         design tokens, typography presets, global reset
-  lib/            motion presets and shared hooks
+  app/
+    [locale]/            all pages, one root layout per locale (html lang)
+      page.tsx           homepage
+      services/          overview + [slug] service pages
+      about/ contact/ privacy/ work/
+      [...rest]/         localized 404 for unknown paths
+      not-found.tsx      localized 404 view
+    global-not-found.tsx 404 for URLs outside any locale
+    sitemap.ts robots.ts manifest.ts fonts.ts
+  content/
+    types.ts             the content contract (TypeScript enforces complete translations)
+    en/ hy/ ru/          all copy: common, home, services, pages
+  i18n/                  locale config, content loader, params helper
+  lib/                   site facts, SEO metadata, JSON-LD, routes, services, EmailJS
   components/
-    primitives/   reusable building blocks
-    layout/       Header, Footer
-    sections/     one folder per page section
-  App.tsx         section order
+    layout/              Header, LanguageSwitcher, Footer, RevealObserver, head script
+    sections/            page sections (home/, service/, shared blocks)
+    ui/                  Button, Icon, Logo, SectionHeading
+    visuals/             CodePanel (hero), ServiceVisual (schematic SVGs)
+    contact/             ContactForm
+  styles/                tokens.css (brand palette and scales), globals.css
+public/brand/            official wordmark, mark, OG images
+scripts/                 QA and asset-generation scripts
+email-templates/         EmailJS templates (notification + auto-reply)
 ```
 
-### Editing content
+## Editing content
 
-Nothing user-facing is hard-coded inside a component. Each file in `src/content`
-owns one area:
+All user-facing text lives in `src/content/{en,hy,ru}`. Each locale exports one
+`SiteContent` object, so a missing translation is a TypeScript error. Edit all
+three languages together. After publishing content changes, update
+`CONTENT_UPDATED` in `src/lib/routes.ts`; it feeds the sitemap and the privacy page.
 
-| File              | Controls                                                   |
-| ----------------- | ---------------------------------------------------------- |
-| `site.ts`         | brand name, logo, e-mail, nav items, header CTA, copyright  |
-| `hero.ts`         | hero headline tokens, avatars, paragraph, CTA, logo strip   |
-| `tickers.ts`      | the two rotated marquee ribbons                             |
-| `about.ts`        | scroll-reveal statement and capability chips                |
-| `testimonials.ts` | statistics counters and testimonial slides                  |
-| `works.ts`        | case-study cards                                            |
-| `services.ts`     | service tabs (label, copy, image, tags)                     |
-| `founder.ts`      | bio, portrait, socials, career timeline                     |
-| `awards.ts`       | award rows                                                  |
-| `pricing.ts`      | plans, prices, feature lists, CTAs                          |
-| `faq.ts`          | accordion columns and the default-open item                 |
-| `contact.ts`      | headline, form fields, e-mail marquee                       |
-| `footer.ts`       | footer link columns and artwork                             |
+Verified company facts (email, location, founding year, social profiles) live in
+`src/lib/site.ts`. Add social profiles to `site.socials` only with real URLs.
+They appear automatically in the footer and in the Organization schema (`sameAs`).
 
-Adding a testimonial, plan, award or FAQ entry is a single array item — the
-layout, animation and stagger follow automatically.
+### Adding portfolio projects
 
-### Editing design
+The `/work` section is built but stays hidden until it has content. With no
+projects it returns a 404 and is excluded from navigation and the sitemap.
+To publish a case study:
 
-`src/styles/tokens.css` holds every colour, radius, shadow, spacing and easing
-value as a custom property. `src/styles/typography.css` holds the text presets
-(`.t-display1`, `.t-h2`, `.t-body`, …) with their breakpoint overrides. Component
-CSS Modules reference tokens only — no raw hex values.
+1. Put real, client-approved screenshots in `public/images/work/<slug>/`.
+2. Add a `ProjectContent` entry to `work.projects` in **all three** `pages.ts` files.
+   Use the same `slug` in each.
+3. Build. The Work link, `/work`, `/work/<slug>` and the sitemap entries appear automatically.
 
----
+Only add verified work and verified results.
 
-## Breakpoints
+## Internationalization
 
-The three Framer breakpoints are reproduced exactly:
+- URLs: `/en/...`, `/hy/...`, `/ru/...`. Slugs are identical across languages, so
+  the language switcher always keeps the reader on the equivalent page.
+- `/` permanently redirects (308) to `/en`, the x-default language. Language is
+  never auto-redirected based on the browser.
+- Every page outputs a canonical URL, `hreflang` for en/hy/ru plus x-default, and
+  localized Open Graph tags and images (`public/brand/og-{locale}.png`).
 
-| Range          | Framer variant | Notes                                    |
-| -------------- | -------------- | ---------------------------------------- |
-| >= 1440px      | Desktop        | 156px shell padding, 1128px content grid |
-| 810px – 1439px | Tablet         | 40/30px padding, stacked feature blocks  |
-| <= 809px       | Mobile         | 20px padding, fixed header + burger menu |
+## SEO
 
----
+- `sitemap.xml`: every locale URL with `xhtml:link` alternates. `robots.txt`
+  references it. (The previous `robotos.txt` typo meant production had no robots.txt.)
+- JSON-LD: Organization, WebSite, WebPage / AboutPage / ContactPage /
+  CollectionPage, Service and BreadcrumbList. No ratings or reviews.
+- Redirects in `next.config.ts`: `/` → `/en`, and locale-less paths
+  (`/services`, `/about`, `/contact`, `/privacy`, `/services/:slug`) → `/en/...`.
 
-## Motion
+## Brand reveal and motion
 
-`src/lib/motion.ts` contains the ported transitions — the spring constants
-(`stiffness`, `damping`, `mass`) and bezier curves are the exact numbers Framer
-emits, e.g.:
+On the first page load of a session, the header wordmark is revealed by a wipe
+while the orange Cut sweeps across it. It never covers the page, plays once per
+session, and is skipped for `prefers-reduced-motion` and when JavaScript is off.
+Section reveals use one IntersectionObserver. All animations use
+transform/opacity only.
 
-- header bar — `spring(200, 60)` after 0.6s
-- hero banner — `tween(1s, 0.2s, cubic-bezier(.09,.89,.36,.96))` from
-  `rotateX(35deg) scale(.8)` with a 3962px perspective
-- section reveals — `spring(66, 20)` / `spring(320, 60)` / `spring(200, 40)`
-- split text — 10px rise plus 10px blur, 0.05s per character
+## Quality checks
 
-Everything honours `prefers-reduced-motion` through a single
-`<MotionConfig reducedMotion="user">` at the app root; the CSS marquees opt out
-separately.
-
----
-
-## Tooling
-
-`tools/` contains the scripts used to verify fidelity against the original:
+Run against a production server (`npm run build && npm start`):
 
 ```bash
-node tools/screenshot.mjs <url> <outDir> <prefix> <widths>   # full-page captures
-node tools/shot-at.mjs   <url> <out.png> <scrollY> [w] [h]   # viewport capture
-node tools/crop.mjs      <in.png> <out.png> <top> <height>   # slice a capture
-node tools/measure.mjs   <url> "<selector>" [width]          # box metrics
-node tools/probe.mjs     <url> "<selector>" "<props>"        # computed styles
-node tools/dump-dom.mjs  <url> <out.html>                    # hydrated markup
+BASE_URL=http://localhost:3000 npm run qa:seo           # metadata, canonical, hreflang, sitemap, robots, JSON-LD, links, redirects, 404s
+BASE_URL=http://localhost:3000 npm run qa:a11y          # axe-core WCAG 2.2 A/AA on every page, desktop + mobile
+BASE_URL=http://localhost:3000 npm run qa:interactions  # menu, keyboard, language switch, FAQ, form, reveal, reduced motion, no-JS
+BASE_URL=http://localhost:3000 npm run qa:visual        # screenshots at 375/820/1440 + overflow and console checks (.qa/visual)
+node scripts/generate-brand-assets.mjs                  # regenerate icons and OG images
 ```
+
+## Deployment (Vercel)
+
+- `vercel.json` sets the framework to `nextjs`, because the project was
+  previously deployed as a Vite app.
+- **Environment variables:** the EmailJS variables already set on Vercel under
+  `VITE_EMAILJS_*` keep working. `next.config.ts` maps them, and
+  `NEXT_PUBLIC_EMAILJS_*` names also work. `NEXT_PUBLIC_SITE_URL` is optional and
+  defaults to `https://codixa.space`.
+- Without EmailJS credentials the form shows an honest "write to us by email"
+  message. It never fakes a successful send.
+- After deploying: submit `https://codixa.space/sitemap.xml` in Google Search
+  Console and inspect `/en`, `/hy` and `/ru` with the URL Inspection tool.

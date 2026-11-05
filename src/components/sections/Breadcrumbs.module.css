@@ -1,0 +1,33 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.item:not(:last-child)::after {
+  content: "/";
+  margin-inline: 0.7rem;
+  color: var(--border-strong);
+  opacity: 0.35;
+}
+
+.item [aria-current] {
+  color: var(--text-strong);
+}
+
+.link {
+  display: inline-flex;
+  min-height: 1.75rem;
+  align-items: center;
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--accent-text);
+}
