@@ -1,84 +1,141 @@
-/**
- * Design tokens — mirrored 1:1 from the Framer project's colour styles,
- * typography presets, radii, shadows and motion curves.
- *
- * Every value in the UI should reference a token from this file.
+/*
+ * Codixa Technologies — design tokens.
+ * Source of truth: Brand Identity Guidelines v1.0 (2026), pages 06–13.
+ * Colour balance: neutrals 60 · dark 25 · orange 10 · tints 5.
  */
 
 :root {
-  /* ---------------------------------------------------------------- colour */
-  --c-black: #000000;
-  --c-ink: #131313;
-  --c-ink-soft: #111111;
-  --c-gray: #5c5c5c;
-  --c-gray-40: rgba(92, 92, 92, 0.4);
-  --c-surface: #f0f0f0;
-  --c-page: #dcdcdc;
-  --c-page-0: rgba(220, 220, 220, 0);
-  --c-white: #ffffff;
-  --c-accent: #ff4d00;
-  --c-success: #61c554;
+  /* ── Brand palette (exact values from the brand book) ── */
+  --orange: #fb4001; /* Codixa Orange — accent, primary action, one focal point */
+  --ember: #c23200; /* orange text below 18px, links, pressed states */
+  --glow: #ffe6db; /* tinted surfaces, icon tiles, highlights */
+  --white: #ffffff;
+  --paper: #f8f7f5; /* page & section backgrounds */
+  --stone: #eae7e3; /* borders, dividers, panels */
+  --mist: #a19d98; /* secondary text on dark */
+  --ash: #6e6a66; /* secondary text on light (AA on Paper) */
+  --graphite: #2a2a2d; /* cards & borders on dark */
+  --carbon: #1d1d1f; /* headings, body text, dark UI */
+  --ink: #111111; /* darkest backgrounds, maximum contrast */
 
-  /* translucent inks */
-  --c-ink-82: rgba(12, 12, 12, 0.82);
-  --c-ink-40: rgba(12, 12, 12, 0.4);
-  --c-ink-8: rgba(19, 19, 19, 0.08);
-  --c-neutral-8: rgba(26, 26, 26, 0.08);
-  --c-neutral-6: rgba(26, 26, 26, 0.06);
-  --c-neutral-12: rgba(26, 26, 26, 0.12);
-  --c-black-3: rgba(0, 0, 0, 0.03);
-  --c-black-10: rgba(0, 0, 0, 0.1);
-  --c-black-17: rgba(0, 0, 0, 0.17);
-  --c-black-19: rgba(0, 0, 0, 0.19);
-  --c-black-77: rgba(0, 0, 0, 0.77);
+  /* Hairlines derived from the book's chrome rules */
+  --line-paper: #e2ded9;
+  --line-stone: #dad6d0;
+  --line-dark: #303034;
 
-  /* translucent whites */
-  --c-white-80: rgba(255, 255, 255, 0.8);
-  --c-white-64: rgba(255, 255, 255, 0.64);
-  --c-white-24: rgba(255, 255, 255, 0.24);
-  --c-white-20: rgba(255, 255, 255, 0.2);
-  --c-white-16: rgba(255, 255, 255, 0.16);
-  --c-white-10: rgba(255, 255, 255, 0.1);
-  --c-white-0: rgba(255, 255, 255, 0);
+  /* ── Semantic roles (light surface defaults; re-mapped by [data-tone]) ── */
+  --bg: var(--white);
+  --surface: var(--paper);
+  --surface-raised: var(--white);
+  --text: var(--carbon);
+  --text-strong: var(--ink);
+  --text-muted: var(--ash);
+  --border: var(--stone);
+  --border-strong: var(--carbon);
+  --accent-text: var(--ember);
+  --focus: var(--orange);
+  --grid-line: rgba(17, 17, 17, 0.055);
 
-  --c-border-light: #dcdcdc;
+  /* ── Typography ── */
+  --font-sans: var(--font-manrope), var(--font-armenian), "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains), var(--font-armenian), ui-monospace, "SFMono-Regular", Consolas, monospace;
 
-  /* ------------------------------------------------------------ typography */
-  --font-display: "Cal Sans", "Cal Sans Placeholder", sans-serif;
-  --font-sans: "Inter", "Inter Placeholder", sans-serif;
-  --font-features: "blwf" on, "cv09" on, "cv03" on, "cv04" on, "cv11" on;
+  --fs-display: clamp(2.6rem, 1.4rem + 4.6vw, 5.4rem);
+  --fs-h1: clamp(2.25rem, 1.45rem + 3.1vw, 4.1rem);
+  --fs-h2: clamp(1.85rem, 1.3rem + 2vw, 3rem);
+  --fs-h3: clamp(1.15rem, 1.05rem + 0.35vw, 1.375rem);
+  --fs-lead: clamp(1.075rem, 1rem + 0.35vw, 1.3rem);
+  --fs-statement: clamp(1.5rem, 1.1rem + 1.6vw, 2.35rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
 
-  /* ---------------------------------------------------------------- radius */
-  --r-xs: 1px;
-  --r-sm: 8px;
-  --r-md: 10px;
-  --r-lg: 16px;
-  --r-xl: 24px;
-  --r-2xl: 32px;
-  --r-pill: 50px;
-  --r-round: 999px;
+  --lh-tight: 1;
+  --lh-heading: 1.08;
+  --lh-snug: 1.35;
+  --lh-body: 1.65;
 
-  /* --------------------------------------------------------------- shadows */
-  --sh-avatar: 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-  --sh-chip: inset 0 0.5px 0.5px rgba(255, 255, 255, 0.24),
-    inset 0 4px 16px var(--c-white-16), 0 1px 2px rgba(26, 26, 26, 0.08),
-    0 2px 6px rgba(26, 26, 26, 0.04);
-  --sh-cta: 0 3px 6px rgba(0, 0, 0, 0.19), 0 10px 10px rgba(0, 0, 0, 0.17),
-    0 23px 14px rgba(0, 0, 0, 0.1), 0 41px 17px rgba(0, 0, 0, 0.03);
-  --sh-nav-button: 0 12px 12px -6px rgba(26, 26, 26, 0.12);
+  --ls-display: -0.04em;
+  --ls-h1: -0.035em;
+  --ls-h2: -0.03em;
+  --ls-h3: -0.015em;
+  --ls-label: 0.12em;
 
-  /* --------------------------------------------------------------- layout */
-  --page-max: 1920px;
-  --shell-pad-desktop: 156px;
-  --shell-pad-tablet: 40px;
-  --shell-pad-mobile: 20px;
+  /* ── Space (8px base, from the book's digital spec) ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 5rem;
+  --section: clamp(4.5rem, 3rem + 6vw, 8rem);
+  --section-tight: clamp(3.5rem, 2.5rem + 4vw, 6rem);
 
-  /* --------------------------------------------------------------- motion */
-  --ease-framer: cubic-bezier(0.44, 0, 0.56, 1);
-  --ease-banner: cubic-bezier(0.09, 0.89, 0.36, 0.96);
-  --ease-out-soft: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --dur-fast: 0.2s;
-  --dur-base: 0.3s;
-  --dur-slow: 0.4s;
-  --dur-slower: 0.6s;
+  /* ── Layout ── */
+  --container: 80rem;
+  --container-narrow: 48rem;
+  --gutter: clamp(1rem, 0.4rem + 2.6vw, 2.5rem);
+  --header-h: 4.5rem;
+
+  /* ── Radii — echo the rounded counters of O and D (1.2 / 2.4 / 4 mm) ── */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  /* ── The Cut — 65° diagonal from the terminal of the C ── */
+  --cut: -25deg;
+
+  /* ── Elevation (restrained; brand favours hairlines over shadows) ── */
+  --shadow-1: 0 1px 2px rgba(17, 17, 17, 0.05), 0 4px 14px rgba(17, 17, 17, 0.05);
+  --shadow-2: 0 2px 4px rgba(17, 17, 17, 0.06), 0 18px 40px -12px rgba(17, 17, 17, 0.22);
+
+  /* ── Motion ── */
+  --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 560ms;
+  --dur-4: 820ms;
+}
+
+/* Surface tones. Components read semantic tokens, so they adapt automatically. */
+[data-tone="paper"] {
+  --bg: var(--paper);
+  --surface: var(--white);
+  --border: var(--line-paper);
+}
+
+[data-tone="stone"] {
+  --bg: var(--stone);
+  --surface: var(--paper);
+  --surface-raised: var(--paper);
+  --border: var(--line-stone);
+  /* Ash is AA only on White/Paper; on Stone a darker step of the same hue keeps 4.5:1+. */
+  --text-muted: #57534f;
+  --grid-line: rgba(17, 17, 17, 0.07);
+}
+
+[data-tone="ink"],
+[data-tone="carbon"] {
+  --bg: var(--ink);
+  --surface: var(--carbon);
+  --surface-raised: var(--graphite);
+  --text: var(--white);
+  --text-strong: var(--white);
+  --text-muted: var(--mist);
+  --border: var(--line-dark);
+  --border-strong: var(--white);
+  --accent-text: var(--orange);
+  --grid-line: rgba(255, 255, 255, 0.055);
+  color-scheme: dark;
+}
+
+[data-tone="carbon"] {
+  --bg: var(--carbon);
+  --surface: var(--graphite);
 }

@@ -1,0 +1,72 @@
+.list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--stone);
+  border-radius: var(--r-md);
+  background: var(--white);
+}
+
+.link {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 2.5rem;
+  min-height: 2.125rem;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ash);
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--carbon);
+  background: var(--paper);
+}
+
+.active,
+.active:hover {
+  color: var(--white);
+  background: var(--ink);
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 4px;
+  height: 4px;
+  background: var(--orange);
+  transform: skewX(var(--cut));
+}
+
+.dark .list {
+  background: transparent;
+  border-color: var(--line-dark);
+}
+
+.dark .link {
+  color: var(--mist);
+  min-height: 2.75rem;
+  min-width: 3.25rem;
+  font-size: 0.8125rem;
+}
+
+.dark .link:hover {
+  background: var(--graphite);
+  color: var(--white);
+}
+
+.dark .active,
+.dark .active:hover {
+  background: var(--white);
+  color: var(--ink);
+}

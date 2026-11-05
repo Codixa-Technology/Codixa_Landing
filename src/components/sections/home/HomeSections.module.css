@@ -1,0 +1,537 @@
+/* ═════════════════════════════ Hero ═════════════════════════════ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+  padding-bottom: clamp(3rem, 2rem + 3vw, 4.5rem);
+  background: var(--white);
+}
+
+.heroGrid {
+  position: absolute;
+  inset: 0;
+  mask-image: radial-gradient(ellipse 70% 80% at 75% 30%, black, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 75% 30%, black, transparent 75%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  display: grid;
+  gap: clamp(3rem, 2rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+.heroText {
+  display: grid;
+  gap: var(--space-6);
+  justify-items: start;
+}
+
+.heroLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+:lang(hy) .heroLabel {
+  letter-spacing: 0.06em;
+}
+
+.heroTitle {
+  max-width: 13ch;
+}
+
+:lang(hy) .heroTitle,
+:lang(ru) .heroTitle {
+  max-width: 15ch;
+  font-size: clamp(2.35rem, 1.3rem + 4vw, 4.7rem);
+}
+
+.heroLead {
+  max-width: 34rem;
+  color: var(--ash);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.heroVisual {
+  width: 100%;
+  max-width: 36rem;
+  justify-self: center;
+}
+
+.pillars {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+}
+
+.pillar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-4);
+  row-gap: var(--space-1);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--carbon);
+}
+
+.pillarIcon {
+  grid-row: span 2;
+  color: var(--orange);
+}
+
+.pillarTitle {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.pillarText {
+  font-size: var(--fs-small);
+  color: var(--ash);
+  line-height: 1.55;
+}
+
+@media (min-width: 40em) {
+  .pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64em) {
+  .heroInner {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  }
+
+  .heroVisual {
+    justify-self: end;
+  }
+
+  .pillars {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-7);
+  }
+
+  .pillar {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-2);
+  }
+
+  .pillarIcon {
+    grid-row: auto;
+    margin-bottom: var(--space-3);
+  }
+}
+
+/* Hero entrance — CSS only, no JS dependency. Waits for the intro on first visit. */
+@media (prefers-reduced-motion: no-preference) {
+  .enter {
+    animation: enter var(--dur-4) var(--ease-out) both;
+    animation-delay: calc(var(--hero-delay, 0ms) + var(--e, 0) * 90ms);
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+}
+
+/* Headline and lead are LCP candidates: they move in but are never transparent. */
+.heroTitle.enter,
+.heroLead.enter {
+  animation-name: enter-solid;
+}
+
+@keyframes enter-solid {
+  from {
+    transform: translate3d(0, 22px, 0);
+  }
+}
+
+/* ═════════════════════════════ Shared ═════════════════════════════ */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.rule {
+  width: 1.75rem;
+  height: 2px;
+  background: var(--orange);
+}
+
+.sectionFoot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--space-5);
+}
+
+/* ═════════════════════════════ Intro ═════════════════════════════ */
+.intro {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.introHead {
+  display: grid;
+  gap: var(--space-5);
+  align-content: start;
+}
+
+.introBody {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.statement {
+  padding: var(--space-6) var(--space-6);
+}
+
+@media (min-width: 64em) {
+  .intro {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: var(--space-10);
+  }
+
+  .introBody {
+    padding-top: var(--space-8);
+  }
+
+  .introBody .t-body {
+    padding-inline: var(--space-6);
+  }
+}
+
+/* ════════════════════════════ Problems ════════════════════════════ */
+.problems {
+  overflow: hidden;
+}
+
+.problemsGrid {
+  position: absolute;
+  inset: 0;
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  pointer-events: none;
+}
+
+/* One orange 65° line marks direction (G5) */
+.problemsLine {
+  position: absolute;
+  top: 0;
+  right: 4%;
+  width: 2px;
+  height: 46%;
+  background: linear-gradient(to bottom, var(--orange), transparent);
+  transform: rotate(25deg);
+  transform-origin: top;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+@media (max-width: 47.99em) {
+  .problemsLine {
+    display: none;
+  }
+}
+
+.problemList {
+  position: relative;
+  display: grid;
+  border-top: 1px solid var(--line-dark);
+}
+
+.problem {
+  display: grid;
+  gap: var(--space-4);
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.problemNo {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+
+.problemTitle {
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  max-width: 28rem;
+}
+
+.solution {
+  display: flex;
+  gap: 0.75rem;
+  color: var(--mist);
+  max-width: 30rem;
+}
+
+.solutionIcon {
+  flex: none;
+  margin-top: 0.2rem;
+  color: var(--orange);
+}
+
+@media (min-width: 48em) {
+  .problemList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-9);
+  }
+
+  .problem {
+    padding: var(--space-8) 0;
+  }
+}
+
+/* ═══════════════════════════ Principles ═══════════════════════════ */
+.principles {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.principleList {
+  display: grid;
+  border-top: 1px solid var(--border-strong);
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  column-gap: var(--space-5);
+  row-gap: var(--space-2);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.principleNo {
+  grid-row: span 2;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ember);
+  padding-top: 0.15rem;
+}
+
+@media (min-width: 64em) {
+  .principles {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-10);
+    align-items: start;
+  }
+
+  .principlesHead {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+
+  .principle {
+    grid-template-columns: 4.5rem minmax(0, 0.8fr) minmax(0, 1.2fr);
+    column-gap: var(--space-6);
+    align-items: baseline;
+    padding: var(--space-7) 0;
+  }
+
+  .principleNo {
+    grid-row: auto;
+  }
+}
+
+/* ══════════════════════════ Capabilities ══════════════════════════ */
+.capGrid {
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+.capGroup {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+  padding: var(--space-6);
+  background: var(--bg);
+}
+
+.capTitle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 1.125rem;
+  letter-spacing: -0.015em;
+}
+
+.capTitle span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  color: var(--ember);
+}
+
+.capList {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.capList li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  font-size: 0.9375rem;
+  color: var(--carbon);
+}
+
+.capList li::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  background: var(--carbon);
+  transform: skewX(var(--cut)) translateY(-2px);
+}
+
+.capGroup:hover {
+  background: var(--paper);
+}
+
+.capGroup:hover .capList li::before {
+  background: var(--orange);
+}
+
+@media (min-width: 40em) {
+  .capGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64em) {
+  .capGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .capGroup {
+    padding: var(--space-7) var(--space-6);
+    min-height: 18rem;
+  }
+}
+
+/* ════════════════════════════ Audiences ════════════════════════════ */
+.audienceGrid {
+  display: grid;
+  border-top: 1px solid var(--border);
+}
+
+.audience {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.audienceIcon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: var(--space-2);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  color: var(--carbon);
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out);
+}
+
+.audience:hover .audienceIcon {
+  background: var(--glow);
+  border-color: var(--glow);
+  color: var(--ember);
+}
+
+@media (min-width: 40em) {
+  .audienceGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .audience {
+    padding: var(--space-7) var(--space-6) var(--space-7) 0;
+  }
+
+  .audience:nth-child(2n) {
+    padding-left: var(--space-6);
+    border-left: 1px solid var(--border);
+  }
+}
+
+@media (min-width: 64em) {
+  .audienceGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .audience,
+  .audience:nth-child(2n) {
+    padding: var(--space-8) var(--space-6);
+    border-left: 1px solid var(--border);
+  }
+
+  .audience:nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/* ═══════════════════════════════ FAQ ═══════════════════════════════ */
+.faq {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.faqContact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  margin-top: calc(var(--space-6) * -1);
+}
+
+@media (min-width: 64em) {
+  .faq {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-10);
+    align-items: start;
+  }
+
+  .faqHead {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}

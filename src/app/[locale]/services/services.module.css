@@ -1,0 +1,41 @@
+.guide {
+  display: grid;
+  gap: 1px;
+  background: var(--line-dark);
+  border-block: 1px solid var(--line-dark);
+}
+
+.guideItem {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-7) 0;
+  background: var(--bg);
+}
+
+.quote {
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.answer {
+  color: var(--mist);
+  max-width: 30rem;
+}
+
+@media (min-width: 48em) {
+  .guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .guideItem {
+    padding: var(--space-8) var(--space-7) var(--space-8) 0;
+  }
+
+  .guideItem:nth-child(2n) {
+    padding-left: var(--space-7);
+  }
+}

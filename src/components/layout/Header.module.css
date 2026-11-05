@@ -1,0 +1,237 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--dur-2) var(--ease-out),
+    border-color var(--dur-2) var(--ease-out),
+    backdrop-filter var(--dur-2) var(--ease-out);
+}
+
+.scrolled,
+.isOpen {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom-color: var(--stone);
+  backdrop-filter: saturate(1.4) blur(14px);
+  -webkit-backdrop-filter: saturate(1.4) blur(14px);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  height: var(--header-h);
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  flex: none;
+  min-height: 2.75rem;
+}
+
+/* Minimum on-screen size is 100px (brand book p.05). */
+.logo {
+  width: 118px;
+  height: auto;
+}
+
+.desktopNav {
+  display: none;
+}
+
+.navList {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0 0.85rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--carbon);
+  border-radius: var(--r-md);
+  transition: color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out);
+}
+
+.navLink:hover {
+  background: var(--paper);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 4px;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.active {
+  color: var(--ember);
+}
+
+.active::after {
+  transform: scaleX(1);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.desktopOnly {
+  display: none;
+}
+
+.cta {
+  display: none;
+  min-height: 2.625rem;
+}
+
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--r-md);
+  border: 1px solid var(--stone);
+  background: var(--white);
+  color: var(--ink);
+}
+
+.isOpen .toggle {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+
+/* ── Mobile panel ── */
+.panel {
+  position: fixed;
+  inset: var(--header-h) 0 0 0;
+  background: var(--ink);
+  color: var(--white);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.panel::before {
+  /* G5 line pattern — 65° hairlines with one orange line */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, transparent 0 calc(72% - 1px), var(--orange) calc(72% - 1px) 72%, transparent 72%),
+    repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 22px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.panelInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
+  min-height: 100%;
+  padding-block: var(--space-7) var(--space-8);
+}
+
+.panelList {
+  display: grid;
+}
+
+.panelList li {
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.panelLink {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 0;
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.panelLink[aria-current="page"] {
+  color: var(--orange);
+}
+
+.panelIndex {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+
+.panelFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .panel:not([hidden]) .panelList li {
+    animation: panel-in var(--dur-3) var(--ease-out) both;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+}
+
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (min-width: 40em) {
+  .cta {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 64em) {
+  .desktopNav,
+  .desktopOnly {
+    display: block;
+  }
+
+  .toggle,
+  .panel {
+    display: none;
+  }
+
+  .logo {
+    width: 128px;
+  }
+}
+
+@media (min-width: 64em) and (max-width: 75em) {
+  .navLink {
+    padding: 0 0.6rem;
+    font-size: 0.875rem;
+  }
+}

@@ -1,0 +1,83 @@
+.list {
+  border-top: 1px solid var(--border);
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: 1.35rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.question {
+  font-size: clamp(1.02rem, 0.98rem + 0.25vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--text-strong);
+  transition: color var(--dur-2) var(--ease-out);
+}
+
+.summary:hover .question {
+  color: var(--accent-text);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  color: var(--text-strong);
+  transition:
+    transform var(--dur-3) var(--ease-out),
+    background-color var(--dur-2) var(--ease-out),
+    color var(--dur-2) var(--ease-out);
+}
+
+.item[open] .icon {
+  transform: rotate(45deg);
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--ink);
+}
+
+.answer {
+  padding: 0 3.5rem 1.5rem 0;
+  color: var(--text-muted);
+  max-width: 44rem;
+}
+
+/* Smooth open/close where supported (progressive enhancement) */
+@supports (interpolate-size: allow-keywords) {
+  @media (prefers-reduced-motion: no-preference) {
+    .item {
+      interpolate-size: allow-keywords;
+    }
+
+    .item::details-content {
+      height: 0;
+      overflow: clip;
+      transition:
+        height var(--dur-3) var(--ease-out),
+        content-visibility var(--dur-3) allow-discrete;
+    }
+
+    .item[open]::details-content {
+      height: auto;
+    }
+  }
+}
